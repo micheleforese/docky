@@ -1,0 +1,60 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<document>
+
+  <h1>Titolo</h1>
+  <h2>Sottotitolo</h2>
+
+  <p>Paragrafo non tanto lungo...</p>
+
+
+  <latex>
+    <packages>
+      \usepackage{tikz,tikz-3dplot}
+      \usepackage{amsmath}
+      \usepackage{mathtools}
+      \usepackage[thinc]{esdiff}
+      \usepackage[utf8]{inputenc}
+      \usepackage[italian]{babel}
+      \usepackage{textcomp,gensymb}
+      \usepackage{bm}
+      \usepackage{calc}
+    </packages>
+    $\frac{1}{2} = 0.5$
+  </latex>
+
+  <latex>
+    $\frac{1}{2} = 0.5$
+  </latex>
+
+  <latex>
+    $\frac{2}{4} = 0.5$
+  </latex>
+
+  <latex></latex>
+
+  <latex>
+    \newcommand{\der}[3][]{\frac{d^{#1} #2}{d #3^{#1}}}
+    \newcommand{\dder}[3][]{\frac{\partial{d}^{#1} #2}{\partial{d} #3^{#1} }}
+    \newcommand{\uvec}[1]{\hat{#1}}
+    \newcommand{\cvec}[2]{#1\uvec{#2}}
+    \newcommand{\veccomp}[4][]{\cvec{#2}{i^{#1}} + \cvec{#3}{j^{#1}} + \cvec{#4}{k^{#1}}}
+
+    \begin{equation*}
+      \begin{split}
+        \der{\vec{v^{'}}}{t} &amp;= \der{}{t} (\der{\vec{r'}}{t}) = \\
+        &amp;= \der{}{t} (\der{x'}{t}\uvec{i'} + \der{y'}{t}\uvec{j'} + \der{z'}{t}\uvec{k'} +
+        x' \der{\uvec{i'}}{t} + y' \der{\uvec{j'}}{t} + z' \der{\uvec{k'}}{t}) = \\
+        &amp;=
+        \der[2]{x'}{t} \uvec{i'} + \der{x'}{t} \der{\uvec{i'}}{t} +
+        \der[2]{y'}{t} \uvec{j'} + \der{y'}{t} \der{\uvec{j'}}{t} +
+        \der[2]{z'}{t} \uvec{k'} + \der{z'}{t} \der{\uvec{k'}}{t} + \\
+        &amp;+ \der{x'}{t} \der{\uvec{i'}}{t} + x' \der[2]{\uvec{i'}}{t} +
+        \der{y'}{t} \der{\uvec{j'}}{t} + y' \der[2]{\uvec{j'}}{t} +
+        \der{z'}{t} \der{\uvec{k'}}{t} + z' \der[2]{\uvec{k'}}{t} = \\
+        &amp;= \der[2]{x'}{t} \uvec{i'} + \der[2]{y'}{t} \uvec{j'} + \der[2]{z'}{t} \uvec{k'} +
+        \der{x'}{t} \der{\uvec{i'}}{t} + \der{y'}{t} \der{\uvec{j'}}{t} + \der{z'}{t} \der{\uvec{k'}}{t}
+      \end{split}
+    \end{equation*}
+  </latex>
+
+</document>
