@@ -1,3 +1,4 @@
+import unittest
 from docky.console import console
 from xml.dom import minidom
 from collections import UserDict
@@ -17,9 +18,6 @@ from docky.manim import *
 from docky.docky import *
 
 import docky.utility
-
-console = Console()
-client = docker.from_env()
 
 
 def test_tex():
@@ -59,32 +57,11 @@ def test_manim():
         create_manim_file(item_text)
 
 
-# test_manim()
-# docky = Docky()
-
-
-if(__name__ == '__main__'):
-    console.log(hash("fvsdfv"))
-
-    document = """
-    <?xml version="1.0"?>
-    <company>
-        <name>GeeksForGeeks Company</name>
-        <staff id="1">
-            <name>Amar Pandey</name>
-            <salary>8.5 LPA</salary>
-        </staff>
-        <staff id="2">
-            <name>Akbhar Khan</name>
-            <salary>6.5 LPA</salary>
-        </staff>
-        <staff id="3">
-            <name>Anthony Walter</name>
-            <salary>3.2 LPA</salary>
-        </staff>
-    </company>
-    """
-
-    doc = minidom.parseString(document)
-    name = doc.getElementsByTagName("name")[0]
-    console.print(name.firstChild.data)
+class test_test(unittest.TestCase):
+    def test_list_int(self):
+        """
+        Test that it can sum a list of integers
+        """
+        data = [1, 2, 3]
+        result = sum(data)
+        self.assertEqual(result, 3)
