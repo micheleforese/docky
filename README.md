@@ -1,5 +1,7 @@
 # Docky File Format
 
+This is the compiler for the docky file format.
+
 ```console
 docker run \
   --rm --user $(id -u):$(id -g) -v "$(pwd -W)":/data \
