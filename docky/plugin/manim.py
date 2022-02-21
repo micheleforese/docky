@@ -8,7 +8,7 @@ from docky.utility import hash
 
 
 class Manim(Plugin):
-    build_path: os.path = 'build/manim'
+    build_path: os.path = "build/manim"
     pass
 
 
@@ -18,10 +18,9 @@ def create_manim_file(manim: str):
     manim_hash = hash(manim)
     console.log(manim_hash.hexdigest())
 
-    if(
-        os.path.isfile('./build/manim/{}.manim'.format(manim_hash.hexdigest())) and
-        os.path.isfile('./build/manim/{}.mp4'.format(manim_hash.hexdigest()))
-    ):
+    if os.path.isfile(
+        "./build/manim/{}.manim".format(manim_hash.hexdigest())
+    ) and os.path.isfile("./build/manim/{}.mp4".format(manim_hash.hexdigest())):
         console.log("File already exists.")
         return
 
@@ -43,25 +42,29 @@ def create_manim_file(manim: str):
     console.log("PWD: " + pwd)
 
     # Get User ID and GROUP
-    user_id, stderr = exec_command(['id', '-u'])
+    user_id, stderr = exec_command(["id", "-u"])
     console.log(user_id)
     console.log(stderr)
-    user_group, stderr = exec_command(['id', '-g'])
+    user_group, stderr = exec_command(["id", "-g"])
     console.log(user_group)
     console.log(stderr)
 
     command = [
-        r'docker', r'run',
-        r'--rm',
-        r'--user', r'{}:{}'.format(''.join(filter(str.isdigit, user_id)),
-                                   ''.join(filter(str.isdigit, user_group))
-                                   ),
-        r'-v', r'{}\build\manim:/manim'.format(pwd),
+        r"docker",
+        r"run",
+        r"--rm",
+        r"--user",
+        r"{}:{}".format(
+            "".join(filter(str.isdigit, user_id)),
+            "".join(filter(str.isdigit, user_group)),
+        ),
+        r"-v",
+        r"{}\build\manim:/manim".format(pwd),
         docker_image,
-        'manim',
-        '-pql',
-        '--output_file={}'.format(manim_file_path),
-        '{}'.format(manim_file_path),
+        "manim",
+        "-pql",
+        "--output_file={}".format(manim_file_path),
+        "{}".format(manim_file_path),
     ]
 
     console.print(command)

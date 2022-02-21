@@ -1,23 +1,10 @@
 import unittest
-from docky.console import console
-from xml.dom import minidom
-from collections import UserDict
-from msilib.schema import Error
-from optparse import Option
-from os import error, remove
-import os
-from typing import List, Optional
-from venv import create
-import xml.etree.ElementTree as ET
-from xml.sax.saxutils import XMLFilterBase
-from rich.console import Console
-import hashlib
-import subprocess
-from docky.tex import *
-from docky.manim import *
-from docky.docky import *
 
 import docky.utility
+from docky.console import console
+from docky.docky import xml
+from docky.plugin.tex import create_latex_file
+from rich.console import Console
 
 
 def test_tex():
@@ -29,10 +16,11 @@ def test_tex():
 
     for item in tree.iter():
         console.print(
-            "[blue]<{0}>[/]\n\t{1}\n[blue]</{0}>[/]".format(item.tag, item.text.strip()))
+            "[blue]<{0}>[/]\n\t{1}\n[blue]</{0}>[/]".format(item.tag, item.text.strip())
+        )
         pass
 
-    latex_items = root.findall('latex')
+    latex_items = root.findall("latex")
 
     for item in latex_items:
         latex_text = item.text.strip()
@@ -46,7 +34,7 @@ def test_manim():
     root = xml_file.get_root()
     tree = xml_file.get_tree()
 
-    manim_items = root.findall('manim')
+    manim_items = root.findall("manim")
 
     # docker run --rm -it  --user="$(id -u):$(id -g)" -v "$(pwd -W)":/manim manimcommunity/manim
 

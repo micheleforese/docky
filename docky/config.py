@@ -1,3 +1,2 @@
-
-class Config():
-    build_path: str = 'build/'
+class Config:
+    build_path: str = "build/"
