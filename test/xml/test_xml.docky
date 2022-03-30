@@ -1,0 +1,33 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<document>
+
+  <chapter>
+    Capitolo Bellissimo
+  </chapter>
+
+  <section>
+    Questa è una bella sezione
+  </section>
+
+  <paragraph>
+    Ora inizia la parte interessante, dovrebbe esserci subito dopo un video di YouTube
+    <video src="https://www.youtube.com/watch?v=6581_NXYDrA" />
+    e subito dopo un codice latex
+    <latex>
+      \frac{1}{2}
+    </latex>
+  </paragraph>
+  Finito il paragrafo c'è un'altra zona di latex e manim
+  <latex>
+    \frac{1}{22}
+  </latex>
+  <manim type="python">
+    class CreateCircle(Scene):
+      def construct(self):
+        circle = Circle()  # create a circle
+        circle.set_fill(PINK, opacity=0.5)  # set the color and transparency
+        self.play(Create(circle))  # show the circle on screen
+  </manim>
+
+
+</document>

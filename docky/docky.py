@@ -1,5 +1,6 @@
 import hashlib
 import os
+from pathlib import Path
 import subprocess
 import xml.etree.ElementTree as ET
 from collections import UserDict
@@ -14,6 +15,7 @@ from xml.sax.saxutils import XMLFilterBase
 
 import docker
 
+from xml.dom import minidom
 from docky.console import console
 
 
@@ -21,19 +23,12 @@ class Docky(HTMLParser):
     parser = HTMLParser()
 
     def __init__(self) -> None:
-        console.log("init")
-        self.parser.feed(
-            """
-            <html>
-              <head>
-                <title>Test</title>
-              </head>
-              <body>
-              </body>
-            </html>
-            """
-        )
-        console.print(self.parser)
+        pass
+
+    def compile(self, file: Path):
+        with open(file, mode="r") as docky_file:
+            doc: minidom.Document = minidom.parseString(docky_file.read())
+            console.print(doc.nodeName)
 
 
 class xml:

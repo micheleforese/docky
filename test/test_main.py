@@ -1,4 +1,4 @@
-import unittest
+import pytest
 
 import docky.utility
 from docky.console import console
@@ -43,13 +43,3 @@ def test_manim():
         console.log(item_text)
 
         create_manim_file(item_text)
-
-
-class test_test(unittest.TestCase):
-    def test_list_int(self):
-        """
-        Test that it can sum a list of integers
-        """
-        data = [1, 2, 3]
-        result = sum(data)
-        self.assertEqual(result, 3)

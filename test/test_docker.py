@@ -3,7 +3,7 @@ from docky.console import console
 from docky.docker import Docker
 
 
-class test_docker(unittest.TestCase):
+class test_docker:
     def test_basic(self):
         """
         Test that it can sum a list of integers
@@ -19,8 +19,6 @@ class test_docker(unittest.TestCase):
             ),
         )
 
-        console.print(1 / 0)
-
         real_command = "docker run --rm --user 23:45 -v D://ciao/stronzo:/data pdflatex -output-directory=/build /build/test.tex"
 
-        self.assertEqual(real_command, command)
+        assert real_command == command
