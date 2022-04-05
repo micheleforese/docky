@@ -1,8 +1,17 @@
+from rich import pretty, traceback
 from rich.console import Console
-from rich import pretty
-from rich import traceback
+from rich.theme import Theme
 
 pretty.install()
-traceback.install()
+traceback.install(show_locals=True)
 
-console = Console()
+custom_theme = Theme(
+    {
+        "info": "dim cyan",
+        "warning": "magenta",
+        "error": "bold red",
+    }
+)
+
+
+console = Console(theme=custom_theme, force_terminal=True)

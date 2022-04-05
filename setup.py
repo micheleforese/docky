@@ -1,12 +1,18 @@
-from setuptools import setup, find_packages
-import os
+from gettext import install
+from typing import List
+from rich import inspect
 
+from rich.panel import Panel
+from setuptools import find_packages, setup
+
+from docky.console import console
 
 with open("README.md") as f:
-    readme = f.read()
+    readme: str = f.read()
 
 with open("requirements.txt", "r") as f:
-    install_requires = f.read().splitlines()
+    install_requires: List[str] = f.read().splitlines()
+    inspect(install_requires)
 
 setup(
     name="docky",
@@ -19,4 +25,9 @@ setup(
     # license=license,
     packages=find_packages(exclude=("tests", "docs")),
     install_requires=install_requires,
+    entry_points={
+        "console_scripts": [
+            "docky = docky.script.cli:cli",
+        ],
+    },
 )

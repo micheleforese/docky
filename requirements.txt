@@ -1,4 +1,3 @@
 rich
 numpy
-hashlib
 click
